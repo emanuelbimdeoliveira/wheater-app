@@ -5,7 +5,7 @@ A simple and modular web application that displays real-time weather information
 ---
 
 ## 🌍 Live Preview
-(You can add your deployed link here later)
+https://emanuelbimdeoliveira.github.io/weather-app/
 
 ---
 
