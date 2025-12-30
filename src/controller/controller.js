@@ -1,4 +1,4 @@
-import { getAPIData } from "../api/wheather.api.js";
+import { getAPIData } from "../api/weather.api.js";
 import { updateScreen } from "../display/updateScreen.js";
 import { updateState } from "../state/updateState.js";
 import { getCity } from "../utils/utils.js";
