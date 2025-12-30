@@ -1,99 +1,114 @@
-@font-face {
-  font-family: kenyan-coffee;
-  src: url(../fonte/kenyan_coffee/kenyan\ coffee\ rg.otf);
+:root {
+  --color-primary: #0a4040;
+  --color-primary-light: #0a4f4f;
+
+  --color-light: #f2ebdc;
+  --color-text: #0d0d0d;
+  --color-text-accent: var(--color-light);
+
+  --color-accent: #d97925;
+
+  --grad-main: linear-gradient(
+    45deg,
+    var(--color-primary),
+    var(--color-primary-light)
+  );
+
+  --border-soft: 1px solid var(--color-text);
+  --border-radius: 10px;
+  --box-shadow: 5px 5px 5px #0d0d0d55;
 }
 
+/* RESET + BASE */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
-  text-shadow: 2px 2px 0 black;
 }
 
 body {
-  background: radial-gradient(circle at center top, #f9f9ff, #c8c8cf);
-  height: 100vh;
+  background: radial-gradient(
+    circle at center top,
+    #ffffff,
+    var(--color-light)
+  );
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--color-text);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 main {
-  background: linear-gradient(0deg, #085a55, #08aaa5);
-
-  min-width: 50%;
-  max-width: 800px;
+  background: var(--grad-main);
+  width: 80%;
+  max-width: 580px;
   padding: 2% 5%;
-
-  border-radius: 5px;
-  box-shadow: 5px 5px 10px #0007;
-
-  color: white;
-  font: 500 1.8em kenyan-coffee, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  color: var(--color-text-accent);
+  font-weight: 500;
+  font-size: 1.5em;
 }
 
+/* INPUT AREA */
 section.input-initial {
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
 }
 
 form {
   margin: 2% auto;
-
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
   align-items: center;
 }
 
 form input {
-  background: #aff;
-
+  background: var(--color-light);
+  height: 44px;
   border: none;
   outline: none;
-
-  padding: 9%;
-  box-shadow: 5px 0 10px #0007;
-
-  color: black;
-  font: 400 0.6em kenyan-coffee, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  text-shadow: 1px 1px 0 white;
+  padding: 10px 15px;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+  box-shadow: var(--box-shadow);
+  color: var(--color-text);
+  font-size: 0.6em;
 }
 
 input::placeholder {
-  color: black;
+  color: var(--color-text);
 }
 
 form i {
-  background: #044;
-
-  padding: 6%;
-
-  box-shadow: 5px 5px 10px #0007;
+  background: var(--color-accent);
+  padding: 10px 12px;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
 }
 
+/* WEATHER CONTENT */
 section.weather-content {
-  border-top: solid 3px white;
+  border-top: 2px solid var(--color-light);
+  margin-top: 10px;
+  padding-top: 10px;
 }
 
 div {
   margin: 2% auto;
   padding: 2%;
-
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
-div#weather-details {
+#weather-details {
   justify-content: space-evenly;
 }
 
-div#weather-details div {
+#weather-details div {
   justify-content: center;
 }
 
@@ -101,14 +116,33 @@ p {
   margin: 0 10px;
 }
 
-@media screen and (max-width: 700px) {
+/* RESPONSIVE */
+@media screen and (max-width: 575px) {
   main {
     width: 100%;
-    height: 100%;
-    padding: 1em 0.1em;
+    height: 100vh;
+    padding: 1em 0.3em;
     border-radius: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+}
+
+@media (max-width: 450px) {
+  #weather-details {
+    flex-direction: column;
+  }
+
+  #weather-details > p {
+    display: none;
+  }
+
+  h1 {
+    font-size: 1.7em;
+  }
+
+  #weather-content > p {
+    font-size: 0.9em;
   }
 }
